@@ -1,7 +1,9 @@
-package com.tryus.snaporguess;
+package com.tryus.snaporguess.ui.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.tryus.snaporguess.R;
 
 public class MainActivity extends AppCompatActivity {
 

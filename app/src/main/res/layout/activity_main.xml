@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tryus.snaporguess.MainActivity">
+    tools:context="com.tryus.snaporguess.ui.main.MainActivity">
 
     <TextView
         android:id="@+id/message"
