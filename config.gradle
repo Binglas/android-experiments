@@ -1,0 +1,19 @@
+ext {
+
+    BUILD = [
+            android: [
+                    buildToolsVersion: '25.0.2',
+                    compileSdkVersion: 25,
+                    minSdkVersion: 19,
+                    targetSdkVersion: 25
+            ],
+            compile: [
+                    sourceCompatibility: JavaVersion.VERSION_1_7,
+                    targetCompatibility: JavaVersion.VERSION_1_7
+            ],
+            library: [
+                    supportVersion: '25.3.1',
+                    timberVersion: '4.3.1'
+            ]
+    ]
+}

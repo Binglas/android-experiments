@@ -1,15 +1,26 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion BUILD.android.compileSdkVersion
+
+    buildToolsVersion BUILD.android.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility BUILD.compile.sourceCompatibility
+        targetCompatibility BUILD.compile.targetCompatibility
+    }
+
     defaultConfig {
         applicationId "com.tryus.snaporguess"
-        minSdkVersion 19
-        targetSdkVersion 25
+
+        minSdkVersion BUILD.android.minSdkVersion
+        targetSdkVersion BUILD.android.targetSdkVersion
+
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -27,12 +38,12 @@ dependencies {
     })
 
     //Android Google libraries
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.android.support:support-vector-drawable:25.2.0'
+    compile "com.android.support:appcompat-v7:${BUILD.library.supportVersion}"
+    compile "com.android.support:design:${BUILD.library.supportVersion}"
+    compile "com.android.support:support-vector-drawable:${BUILD.library.supportVersion}"
 
     // Misc libraries
-    compile 'com.jakewharton.timber:timber:4.5.1'
+    compile "com.jakewharton.timber:timber:${BUILD.library.timberVersion}"
 
     testCompile 'junit:junit:4.12'
 }
