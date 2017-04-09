@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 
 android {
@@ -16,18 +18,34 @@ android {
         minSdkVersion BUILD.android.minSdkVersion
         targetSdkVersion BUILD.android.targetSdkVersion
 
-        versionCode 1
-        versionName "1.0"
+        versionName BUILD.product.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
-        release {
+        debug {
+            applicationIdSuffix '.dev'
+            versionNameSuffix "-${getGitHeadHash()}"
+
             minifyEnabled false
+            shrinkResources false
+
+        }
+
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    applicationVariants.all { v ->
+        def isReleaseBuildType = v.buildType.name.equals('release')
+
+        def versionName = v.versionName
+
+        v.mergedFlavor.versionCode = buildFlavorVersionCode(versionName, isReleaseBuildType)
     }
 }
 
@@ -46,4 +64,30 @@ dependencies {
     compile "com.jakewharton.timber:timber:${BUILD.library.timberVersion}"
 
     testCompile 'junit:junit:4.12'
+}
+
+def getGitHeadHash(shortSize = 8, referenceName = 'HEAD') {
+    return executeShell("git rev-parse --short=${shortSize} ${referenceName}")
+}
+
+def executeShell(command) {
+    def process = command.execute([], project.rootDir)
+
+    process.waitFor()
+
+    if (process.exitValue() != 0) {
+        throw new RuntimeException(process.getErrorStream().text)
+    }
+
+    return process.text.trim()
+}
+
+def buildFlavorVersionCode(versionName, isRelease = false) {
+    if (isRelease) {
+        def (major, minor, patch) = versionName.tokenize('.')*.toInteger()
+        return (major * 10000) + (minor * 100) + patch
+    } else {
+        def projectDate = new SimpleDateFormat('yyyyMMdd').parse(APK.projectStartDate)
+        return Math.round((new Date().getTime() - projectDate.getTime()) / 1000)
+    }
 }
