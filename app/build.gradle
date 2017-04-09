@@ -41,7 +41,7 @@ android {
     }
 
     applicationVariants.all { v ->
-        def isReleaseBuildType = v.buildType.name.equals('release')
+        def isReleaseBuildType = v.buildType.name == 'release'
 
         def versionName = v.versionName
 
