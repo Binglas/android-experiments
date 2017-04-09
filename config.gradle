@@ -16,8 +16,11 @@ ext {
                     targetCompatibility: JavaVersion.VERSION_1_7
             ],
             library: [
+                    espressoVersion: '2.2.2',
+                    junitVersion: '4.12',
                     supportVersion: '25.3.1',
                     timberVersion: '4.3.1'
+
             ],
             product: [
                     versionName: "1.0.0"

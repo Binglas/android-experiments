@@ -51,7 +51,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:" +
+            "${BUILD.library.espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
@@ -63,7 +64,7 @@ dependencies {
     // Misc libraries
     compile "com.jakewharton.timber:timber:${BUILD.library.timberVersion}"
 
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:${BUILD.library.junitVersion}"
 }
 
 def getGitHeadHash(shortSize = 8, referenceName = 'HEAD') {
