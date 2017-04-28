@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 SnackbarOnDeniedPermissionListener.Builder
                         .with((ViewGroup) findViewById(R.id.container), "Camera access is needed to take pictures of your dog")
                         .withOpenSettingsButton("Settings")
+                        .withDuration(Snackbar.LENGTH_INDEFINITE)
                         .withCallback(new Snackbar.Callback() {
                             @Override
                             public void onShown(Snackbar snackbar) {
