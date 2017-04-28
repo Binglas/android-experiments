@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private void validateCameraPermission() {
         PermissionListener snackbarPermissionListener =
                 SnackbarOnDeniedPermissionListener.Builder
-                        .with((ViewGroup) findViewById(R.id.container), "Camera access is needed to take pictures of your dog")
-                        .withOpenSettingsButton("Settings")
+                        .with((ViewGroup) findViewById(R.id.container), R.string.snackbar_permission_camera)
+                        .withOpenSettingsButton(R.string.snackbar_permission_button_settings)
                         .withDuration(Snackbar.LENGTH_INDEFINITE)
                         .withCallback(new Snackbar.Callback() {
                             @Override
