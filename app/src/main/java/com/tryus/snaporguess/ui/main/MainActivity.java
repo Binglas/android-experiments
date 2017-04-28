@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
         PermissionListener permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted(PermissionGrantedResponse response) {
-
+                // TODO INITIALIZE OUR CAMERA FRAGMENT
             }
 
             @Override
             public void onPermissionDenied(PermissionDeniedResponse response) {
-
+                // TODO SHOW SOME EXPLANATION SCREEN ON WHY THIS PERMISSION IS MANDATORY TO OUR APP
             }
 
             @Override
