@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         validateCameraPermission();
     }
 
+    // TODO ABSTRACT THIS LOGIC FROM MAINACTIVITY CLASS AFTER CAMERA FRAGMENT IMPLEMENTATIONS
     private void validateCameraPermission() {
         PermissionListener snackbarPermissionListener =
                 SnackbarOnDeniedPermissionListener.Builder
