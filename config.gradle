@@ -19,7 +19,9 @@ ext {
                     espressoVersion: '2.2.2',
                     junitVersion: '4.12',
                     supportVersion: '25.3.1',
-                    timberVersion: '4.3.1'
+                    timberVersion: '4.3.1',
+                    dexterVersion: '4.1.0',
+                    cameraFragmentVersion: '1.0.4'
 
             ],
             product: [
