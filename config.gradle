@@ -1,0 +1,29 @@
+ext {
+    APK = [
+            // Project start date yyyy/mm/dd
+            projectStartDate: '20170405'
+    ]
+
+    BUILD = [
+            android: [
+                    buildToolsVersion: '25.0.2',
+                    compileSdkVersion: 25,
+                    minSdkVersion: 19,
+                    targetSdkVersion: 25
+            ],
+            compile: [
+                    sourceCompatibility: JavaVersion.VERSION_1_7,
+                    targetCompatibility: JavaVersion.VERSION_1_7
+            ],
+            library: [
+                    espressoVersion: '2.2.2',
+                    junitVersion: '4.12',
+                    supportVersion: '25.3.1',
+                    timberVersion: '4.3.1'
+
+            ],
+            product: [
+                    versionName: "1.0.0"
+            ]
+    ]
+}
